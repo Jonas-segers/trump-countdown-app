@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="nl" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aftelklok Presidentiële Termijn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .answer-btn {
+            @apply w-full bg-gray-700 text-left text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 mb-2 hover:bg-gray-600;
+        }
+        .answer-btn.correct {
+            @apply bg-green-600 hover:bg-green-600;
+        }
+        .answer-btn.incorrect {
+            @apply bg-red-600 hover:bg-red-600;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 h-full flex items-center justify-center p-4">
+    <div class_name="w-full max-w-2xl mx-auto">
+        
+        <div class="bg-gray-800 shadow-2xl rounded-2xl p-6 md:p-10 text-center">
+            
+            <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">
+                Aftelklok Presidentiële termijn Donald Trump
+            </h1>
+            <p class="text-lg text-gray-400 mb-6">
+                Einde termijn: 20 januari 2029, 12:00 EST
+            </p>
+
+            <div class="mb-6">
+                <div id="days" class="text-7xl md:text-9xl font-extrabold text-white tracking-tight">
+                    --
+                </div>
+                <div class="text-2xl font-bold text-gray-400">Dagen</div>
+            </div>
+
+            <div class="flex justify-center space-x-2 md:space-x-4 mb-8">
+                <div class="bg-gray-700 p-3 md:p-4 rounded-lg min-w-[5rem] md:min-w-[6rem]">
+                    <div id="hours" class="text-3xl md:text-5xl font-bold text-white">--</div>
+                    <div class="text-xs md:text-sm text-gray-400">Uren</div>
+                </div>
+                <div class="bg-gray-700 p-3 md:p-4 rounded-lg min-w-[5rem] md:min-w-[6rem]">
+                    <div id="minutes" class="text-3xl md:text-5xl font-bold text-white">--</div>
+                    <div class="text-xs md:text-sm text-gray-400">Minuten</div>
+                </div>
+                <div class="bg-gray-700 p-3 md:p-4 rounded-lg min-w-[5rem] md:min-w-[6rem]">
+                    <div id="seconds" class="text-3xl md:text-5xl font-bold text-white">--</div>
+                    <div class="text-xs md:text-sm text-gray-400">Seconden</div>
+                </div>
+            </div>
+
+            <div class="w-full bg-gray-700 rounded-full h-4 mb-2 overflow-hidden">
+                <div id="progressBar" class="bg-blue-500 h-4 rounded-full transition-all duration-1000 ease-linear" style="width: 0%"></div>
+            </div>
+            <p id="progressText" class="text-sm text-gray-400 mb-8">0% verstreken</p>
+
+            <div class="bg-yellow-400 bg-opacity-10 border border-yellow-500 text-yellow-300 px-6 py-5 rounded-lg mb-8 text-center">
+                <h3 class="font-bold text-lg mb-2 text-white">Vind je deze app nuttig?</h3>
+                <p class="mb-4 text-yellow-200">Deze app is een hobbyproject. Een kleine donatie helpt enorm met de serverkosten en motiveert me om nieuwe functies te bouwen!</p>
+                <a href="https://www.buymeacoffee.com/jonassegers" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-2 px-5 rounded-lg transition-colors duration-300 ease-in-out">
+                    <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1012 10.125A2.625 2.625 0 0012 4.875z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 10.125c-2.31 0-4.37-.8-5.75-2.138M12 10.125c2.31 0 4.37-.8 5.75-2.138M1.935 5.11A12.01 12.01 0 0112 3c4.136 0 7.86 1.83 10.065 4.61m-10.065 5.513c-2.31 0-4.37-.8-5.75-2.138M12 15.638c2.31 0 4.37-.8 5.75-2.138" />
+                    </svg>
+                    Steun het project
+                </a>
+            </div>
+
+            <button id="showQuizBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 ease-in-out">
+                 Test je Presidentiële Kennis
+            </button>
+        </div>
+
+        <div class="mt-8 text-center text-gray-500">
+            <p class="mb-2 text-sm">Advertentie</p>
+            <div class="bg-gray-800 rounded-lg p-4 min-h-[100px] flex items-center justify-center">
+                <ins class="adsbygoogle"
+                     style="display:block; width:100%;"
+                     data-ad-client="ca-pub-XXXXXXXXXXXXX"
+                     data-ad-slot="YYYYYYYYYY"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="quizModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-gray-800 rounded-2xl shadow-2xl w-full max-w-lg p-6 relative">
+            <button id="closeModalBtn" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h2 class="text-2xl font-bold text-white mb-4">Presidentiële Trivia Quiz</h2>
+            <div id="quizContent" class="text-gray-300 max-h-[60vh] overflow-y-auto pr-2">
+                <!-- Vraag en antwoorden worden hier geladen -->
+            </div>
+        </div>
+    </div>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXX"
+     crossorigin="anonymous"></script>
+
+    <script>
+        const endDate = new Date(Date.UTC(2029, 0, 20, 17, 0, 0)); 
+        const startDate = new Date(Date.UTC(2025, 0, 20, 17, 0, 0));
+        const totalTermMilliseconds = endDate.getTime() - startDate.getTime();
+
+        const el = {
+            days: document.getElementById('days'),
+            hours: document.getElementById('hours'),
+            minutes: document.getElementById('minutes'),
+            seconds: document.getElementById('seconds'),
+            progressBar: document.getElementById('progressBar'),
+            progressText: document.getElementById('progressText'),
+            showQuizBtn: document.getElementById('showQuizBtn'),
+            quizModal: document.getElementById('quizModal'),
+            closeModalBtn: document.getElementById('closeModalBtn'),
+            quizContent: document.getElementById('quizContent')
+        };
+
+        const QUIZ_QUESTIONS = [
+            {
+                question: "Wie is de enige Amerikaanse president die ontslag nam?",
+                options: ["Bill Clinton", "Richard Nixon", "Andrew Johnson", "Herbert Hoover"],
+                answer: "Richard Nixon",
+                explanation: "Richard Nixon nam ontslag in 1974 na het Watergate-schandaal. Hij is de enige president die dit heeft gedaan."
+            },
+            {
+                question: "Welke president had de kortste termijn?",
+                options: ["James A. Garfield", "William Henry Harrison", "Zachary Taylor", "John F. Kennedy"],
+                answer: "William Henry Harrison",
+                explanation: "William Henry Harrison diende slechts 31 dagen in 1841. Hij overleed aan longontsteking, kort na zijn inauguratie."
+            },
+            {
+                question: "Welke president diende twee niet-opeenvolgende termijnen?",
+                options: ["Theodore Roosevelt", "Grover Cleveland", "Woodrow Wilson", "Dwight D. Eisenhower"],
+                answer: "Grover Cleveland",
+                explanation: "Grover Cleveland was president van 1885-1889 en opnieuw van 1893-1897. Hij is de 22e én 24e president."
+            },
+            {
+                question: "In welk jaar werd de 22e Amendement (Limiet van twee termijnen) geratificeerd?",
+                options: ["1933", "1945", "1951", "1960"],
+                answer: "1951",
+                explanation: "Het 22e Amendement, dat een limiet van twee termijnen stelt, werd geratificeerd in 1951, na de vier termijnen van Franklin D. Roosevelt."
+            },
+            {
+                question: "Wie was de jongste persoon die president werd?",
+                options: ["John F. Kennedy", "Theodore Roosevelt", "Bill Clinton", "Barack Obama"],
+                answer: "Theodore Roosevelt",
+                explanation: "Theodore Roosevelt werd president op 42-jarige leeftijd na de moord op William McKinley. John F. Kennedy was de jongste gekozen president (43)."
+            },
+            {
+                question: "Welke president overzag de Louisiana Purchase?",
+                options: ["George Washington", "Thomas Jefferson", "James Madison", "Andrew Jackson"],
+                answer: "Thomas Jefferson",
+                explanation: "Thomas Jefferson kocht in 1803 het enorme Louisiana-gebied van Frankrijk, wat de omvang van de VS verdubbelde."
+            },
+            {
+                question: "Welke president gaf het bevel tot het droppen van de atoombommen op Japan?",
+                options: ["Franklin D. Roosevelt", "Harry S. Truman", "Dwight D. Eisenhower", "Lyndon B. Johnson"],
+                answer: "Harry S. Truman",
+                explanation: "Harry S. Truman nam de beslissing om de bommen op Hiroshima en Nagasaki te droppen in augustus 1945."
+            },
+            {
+                question: "De Eerste presidentiële inauguratie vond plaats in welke stad?",
+                options: ["Philadelphia", "Washington D.C.", "New York City", "Boston"],
+                answer: "New York City",
+                explanation: "George Washington legde de eed af in Federal Hall in New York City in 1789, de toenmalige hoofdstad."
+            },
+            {
+                question: "Wie was de president tijdens de start van de Grote Depressie in 1929?",
+                options: ["Franklin D. Roosevelt", "Herbert Hoover", "Calvin Coolidge", "Warren G. Harding"],
+                answer: "Herbert Hoover",
+                explanation: "Herbert Hoover was president toen de beurskrach van 1929 plaatsvond, wat de Grote Depressie inluidde."
+            },
+            {
+                question: "Welke president was de eerste die op televisie verscheen?",
+                options: ["Franklin D. Roosevelt", "Harry S. Truman", "Dwight D. Eisenhower", "Herbert Hoover"],
+                answer: "Franklin D. Roosevelt",
+                explanation: "Franklin D. Roosevelt verscheen in 1939 als eerste president op een experimentele televisieservice in New York."
+            }
+        ];
+
+        let currentQuestion = null;
+
+        function updateCountdown() {
+            const now = new Date();
+            const remainingTime = endDate.getTime() - now.getTime();
+            const elapsedMilliseconds = now.getTime() - startDate.getTime();
+
+            if (remainingTime < 0) {
+                el.days.textContent = '0';
+                el.hours.textContent = '00';
+                el.minutes.textContent = '00';
+                el.seconds.textContent = '00';
+                el.progressBar.style.width = '100%';
+                el.progressText.textContent = '100% verstreken';
+                clearInterval(countdownInterval);
+                return;
+            }
+
+            const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+            el.days.textContent = days;
+            el.hours.textContent = String(hours).padStart(2, '0');
+            el.minutes.textContent = String(minutes).padStart(2, '0');
+            el.seconds.textContent = String(seconds).padStart(2, '0');
+
+            const progressPercentage = (elapsedMilliseconds / totalTermMilliseconds) * 100;
+            if (progressPercentage >= 0) {
+                 // Aangepast: ToFixed(2) voor twee cijfers na de komma
+                 el.progressBar.style.width = `${progressPercentage.toFixed(2)}%`; 
+                 el.progressText.textContent = `${progressPercentage.toFixed(2)}% verstreken`; // Aangepast
+            } else {
+                el.progressBar.style.width = '0%';
+                el.progressText.textContent = 'Termijn nog niet gestart';
+            }
+        }
+
+        function showQuizModal() {
+            // Selecteer een willekeurige vraag
+            const randomIndex = Math.floor(Math.random() * QUIZ_QUESTIONS.length);
+            currentQuestion = QUIZ_QUESTIONS[randomIndex];
+
+            let html = `<p class="text-xl font-semibold text-blue-400 mb-6">${currentQuestion.question}</p>`;
+            
+            // Toon de antwoordknoppen
+            currentQuestion.options.forEach((option, index) => {
+                html += `<button class="answer-btn" data-answer="${option}">${option}</button>`;
+            });
+
+            el.quizContent.innerHTML = html;
+            el.quizModal.classList.remove('hidden');
+
+            // Voeg event listeners toe aan de nieuwe knoppen
+            document.querySelectorAll('.answer-btn').forEach(button => {
+                button.addEventListener('click', handleAnswerClick);
+            });
+        }
+
+        function handleAnswerClick(event) {
+            const selectedAnswer = event.target.dataset.answer;
+            const buttons = document.querySelectorAll('.answer-btn');
+            
+            // Schakel alle knoppen uit om dubbelklikken te voorkomen
+            buttons.forEach(btn => btn.disabled = true);
+
+            if (selectedAnswer === currentQuestion.answer) {
+                event.target.classList.add('correct');
+                showExplanation("Juist! ✅", currentQuestion.explanation);
+            } else {
+                event.target.classList.add('incorrect');
+                // Markeer de juiste knop groen na een foute poging
+                buttons.forEach(btn => {
+                    if (btn.dataset.answer === currentQuestion.answer) {
+                        btn.classList.add('correct');
+                    }
+                });
+                showExplanation("Fout. ❌", currentQuestion.explanation);
+            }
+        }
+
+        function showExplanation(title, explanation) {
+            const explanationHtml = `
+                <div class="mt-4 p-4 rounded-lg bg-gray-700">
+                    <h4 class="font-bold text-lg mb-2">${title}</h4>
+                    <p>${explanation}</p>
+                    <button id="nextQuizBtn" class="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                        Volgende Vraag
+                    </button>
+                </div>
+            `;
+            el.quizContent.innerHTML += explanationHtml;
+
+            document.getElementById('nextQuizBtn').addEventListener('click', showQuizModal);
+        }
+
+        updateCountdown();
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+        el.showQuizBtn.addEventListener('click', showQuizModal);
+        el.closeModalBtn.addEventListener('click', () => {
+            el.quizModal.classList.add('hidden');
+        });
+        
+        el.quizModal.addEventListener('click', (e) => {
+            if (e.target === el.quizModal) {
+                el.quizModal.classList.add('hidden');
+            }
+        });
+
+    </script>
+</body>
+</html>
